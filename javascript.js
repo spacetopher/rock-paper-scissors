@@ -6,8 +6,15 @@ const random = options[Math.floor(Math.random()*options.length)];
 return random;
 }
 console.log(computerSelection);
+
+
 // prompt for playerSelection
-const playerInput = prompt("Let's play a game! Choose Rock, Paper or Scissors.");
+function inputPrompt() {
+const input = prompt("Let's play a game! Choose Rock, Paper or Scissors.");
+return input;
+}
+
+const playerInput = inputPrompt(); 
 
 let playerSelection = capitalizeFirstLetter();
 // format playerSelection
@@ -17,36 +24,51 @@ const low = playerInput.slice(1).toLowerCase();
 const all = up + low;
 return all;
 }
-console.log(playerSelection);
 
-let winner;
+// check for valid input
+function inputCheck() {
+    console.log(playerSelection);
+    if (playerSelection !== "Rock" && playerSelection !== "Paper" && playerSelection !== "Scissors") {
+    alert("Invalid selection");
+    inputPrompt();
+    }
+}
+
 let player;
 let cpu;
+let winner;
 let draw;
 
 // Write a function that plays a single round of Rock Paper Scissors
 function playRound() {
-    if (playerSelection === "Rock" && computerSelection === "Scissors") {
+    if  (playerSelection === computerSelection) {
+        winner = draw;
+        alert("It's a draw.");
+    }   else if (playerSelection === "Rock" && computerSelection === "Scissors") {
         winner = player;
-        alert("You Win! Rock beats Scissors");
+        alert("Round won! " + playerSelection + " beats " + computerSelection);
     }   else if (playerSelection === "Rock" && computerSelection === "Paper") {
         winner = cpu;
-        alert("You Lose! Paper beats Rock");
+        alert("Round lost. " + playerSelection + " loses to " + computerSelection);
     }   else if (playerSelection === "Paper" && computerSelection === "Scissors") {
         winner = cpu;
-        alert("You Lose! Scissors beats Paper");
+        alert("Round lost. " + playerSelection + " loses to " + computerSelection);
     }   else if (playerSelection === "Paper" && computerSelection === "Rock") {
         winner = player;
-        alert("You Win! Paper beats Rock");
+        alert("Round won! " + playerSelection + " beats " + computerSelection);
     }   else if (playerSelection === "Scissors" && computerSelection === "Rock") {
         winner = cpu;
-        alert("You Lose! Rock beats Scissors");
+        alert("Round lost. " + playerSelection + " loses to " + computerSelection);
     }   else if (playerSelection === "Scissors" && computerSelection === "Paper") {
         winner = player;
-        alert("You Win! Scissors beats Paper");   
-    }   else  {
-        winner = draw;
-        alert("It's a draw. Both opponents chose the same.");
+        alert("Round won! " + playerSelection + " beats " + computerSelection);   
+    }   
+}
+
+// Call playRound() inside to play a 5 round game that keeps score and reports a winner or loser at the end.
+function game() {
+    for (let i = playRound(playerSelection, computerSelection); i < 5; i++) {
+        ;
     }
 }
-playRound(playerSelection, computerSelection);
+game();
