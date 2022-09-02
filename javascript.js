@@ -5,8 +5,6 @@ const options = ["Rock", "Paper", "Scissors"];
 const random = options[Math.floor(Math.random()*options.length)];
 return random;
 }
-console.log(computerSelection);
-
 
 // prompt for playerSelection
 function inputPrompt() {
@@ -25,50 +23,47 @@ const all = up + low;
 return all;
 }
 
-// check for valid input
-function inputCheck() {
-    console.log(playerSelection);
-    if (playerSelection !== "Rock" && playerSelection !== "Paper" && playerSelection !== "Scissors") {
-    alert("Invalid selection");
-    inputPrompt();
-    }
-}
-
-let player;
-let cpu;
 let winner;
-let draw;
+
 
 // Write a function that plays a single round of Rock Paper Scissors
+
 function playRound() {
     if  (playerSelection === computerSelection) {
-        winner = draw;
         alert("It's a draw.");
+        winner = "draw";
+        return console.log(winner); 
     }   else if (playerSelection === "Rock" && computerSelection === "Scissors") {
-        winner = player;
         alert("Round won! " + playerSelection + " beats " + computerSelection);
+        winner = "player";
+        return console.log(winner); 
     }   else if (playerSelection === "Rock" && computerSelection === "Paper") {
-        winner = cpu;
         alert("Round lost. " + playerSelection + " loses to " + computerSelection);
+        winner = "cpu";
+        return console.log(winner); 
     }   else if (playerSelection === "Paper" && computerSelection === "Scissors") {
-        winner = cpu;
         alert("Round lost. " + playerSelection + " loses to " + computerSelection);
+        winner = "cpu";
+        return console.log(winner); 
     }   else if (playerSelection === "Paper" && computerSelection === "Rock") {
-        winner = player;
         alert("Round won! " + playerSelection + " beats " + computerSelection);
+        winner = "player";
+        return console.log(winner); 
     }   else if (playerSelection === "Scissors" && computerSelection === "Rock") {
-        winner = cpu;
         alert("Round lost. " + playerSelection + " loses to " + computerSelection);
+        winner = "cpu";
+        return console.log(winner); 
     }   else if (playerSelection === "Scissors" && computerSelection === "Paper") {
-        winner = player;
-        alert("Round won! " + playerSelection + " beats " + computerSelection);   
+        alert("Round won! " + playerSelection + " beats " + computerSelection);  
+        winner = "player";
+        return console.log(winner); 
     }   
 }
 
 // Call playRound() inside to play a 5 round game that keeps score and reports a winner or loser at the end.
 function game() {
-    for (let i = playRound(playerSelection, computerSelection); i < 5; i++) {
-        ;
-    }
+    for (let i = 0; i < 5; i++) {
+        playRound(playerSelection, computerSelection);
+}
 }
 game();
