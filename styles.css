@@ -1,0 +1,74 @@
+* {
+    background-color:lightgoldenrodyellow;
+    color:rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 1px;
+}
+
+button {
+    border-radius: 1px;
+    border: 3px solid;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    background-color: rgba(226, 43, 156, 0.548);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    border: solid 5px;
+    padding: 5px;
+    margin: 100px;
+}
+
+.players {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    margin: auto;
+}
+.score {
+    display: flex;
+    flex-direction: column;
+    border: solid 5px;
+    padding: 10px;
+    margin: auto;
+}
+
+.container1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    margin: auto;
+    height: auto;
+}
+
+.container2 {
+    display: flex;
+    flex-direction: row;    
+    padding: 5px;
+    margin: 5px;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.container3 {
+    display: flex;
+    flex-direction: row;    
+    padding: 10px;
+    margin: 10px;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.container4 {
+    display: flex;
+    flex-direction: column;    
+    padding: 5px;
+    margin: 20px;
+}
